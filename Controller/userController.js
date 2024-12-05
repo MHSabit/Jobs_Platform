@@ -1,3 +1,7 @@
+const userSchema = require('../Schema/userSchema');
+
+
+
 const user = {};
 
 user.SignIn = (req, res) => {
@@ -6,6 +10,11 @@ user.SignIn = (req, res) => {
 
 user.signup = (req, res) => {
     res.send('signup');
+}
+
+
+user.generateAccessToken = (req, res) => {
+    res.send('generateAccessToken');
 }
 
 module.exports = user;
