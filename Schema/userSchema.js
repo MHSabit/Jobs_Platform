@@ -1,32 +1,28 @@
 const mongoose = require('mongoose');
 
-const userSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true,
-        trim: true,
-        min: 3,
-        max: 20
+const UserSchema = mongoose.Schema({
+    name : {
+        type : String,
+        required : true
     },
     email: {
         type: String,
-        required: true,
-        trim: true,
-        unique: true,
+        required: true
     },
     password: {
         type: String,
-        required: true,
+        required: true
     },
-    role : {
-        type: String,
-        enum: ['Jobs Seeker', 'Jobs Provider'],
-        default: 'Jobs Seeker',
-        required: true,
+    isActive : {
+        type: Boolean,
+        default: false
     },
-}, {timestamps : true});
+    todos : [{
+        type : mongoose.Schema.Types.ObjectId,
+        ref : 'Todo',
+    }]
+});
 
-const userModel  = new mongoose.model('User', userSchema);
+const UserModel = new mongoose.model('user', UserSchema);
 
-module.exports = userModel;
-
+module.exports = UserModel;
