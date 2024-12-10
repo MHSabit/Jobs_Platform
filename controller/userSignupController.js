@@ -1,5 +1,6 @@
 const UserSchema = require('../Schema/UserSchema');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 
 const userSignupController = {};
